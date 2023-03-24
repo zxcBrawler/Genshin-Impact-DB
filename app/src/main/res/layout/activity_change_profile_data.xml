@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangeProfileData"
+    android:background="#202924">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+   app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/alhaitam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <Button
+        android:id="@+id/upload_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+
+        app:layout_constraintTop_toBottomOf="@id/image"
+        android:background="@drawable/rounded"
+        app:backgroundTint="@null"
+        android:textColor="#D3C7A1"
+        android:text="Изменить фото профиля"
+        android:textSize="15sp"/>
+    <EditText
+        android:id="@+id/loginChange"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upload_photo"
+
+        android:background="@drawable/input_fields"
+        android:padding="10sp"
+        android:hint="Логин"
+        android:textColorHint="#D3C7A1"
+
+        android:layout_margin="20sp"
+        android:textColor="#D3C7A1"
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/emailChange"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loginChange"
+        android:padding="10sp"
+        android:hint="Почта"
+        android:textColorHint="#D3C7A1"
+        android:background="@drawable/input_fields"
+        android:layout_margin="20sp"
+        android:textColor="#D3C7A1"
+        android:textSize="20sp"
+        />
+    <EditText
+        android:id="@+id/passwordTXTChange"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailChange"
+        android:padding="10sp"
+        android:hint="Пароль"
+        android:textColorHint="#D3C7A1"
+        android:background="@drawable/input_fields"
+        android:layout_margin="20sp"
+        android:textColor="#D3C7A1"
+        android:textSize="20sp"
+        />
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+
+        app:layout_constraintTop_toBottomOf="@id/passwordTXTChange"
+        android:background="@drawable/rounded"
+        app:backgroundTint="@null"
+        android:textColor="#D3C7A1"
+        android:text="Изменить настройки профиля"
+        android:textSize="15sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

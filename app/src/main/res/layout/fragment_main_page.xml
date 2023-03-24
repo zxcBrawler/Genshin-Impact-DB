@@ -1,0 +1,73 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="fragments.MainPage">
+
+    <TextView
+        android:id="@+id/todayTalents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:fontWeight="500"
+        android:text="Таланты сегодня"
+        android:textColor="#D3C7A1"
+        android:textSize="25sp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/talentsDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       app:layout_constraintTop_toBottomOf="@id/todayTalents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="sans-serif-medium"
+        android:fontWeight="500"
+        android:text="Главная"
+        android:textColor="#D3C7A1"
+        android:textSize="25sp" />
+    <TextView
+        android:id="@+id/todayMaterials"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/talentsDay"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:fontWeight="500"
+        android:text="Материалы сегодня"
+        android:textColor="#D3C7A1"
+        android:textSize="25sp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weaponsDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@id/todayMaterials"
+        android:fontWeight="500"
+        android:text="Главная"
+        android:textColor="#D3C7A1"
+        android:textSize="25sp" />
+    <Button
+        android:id="@+id/gotoresign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Таймер"
+        app:layout_constraintTop_toBottomOf="@id/weaponsDay"/>
+    <Button
+        android:id="@+id/goToCalculator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Калькулятор"
+        app:layout_constraintTop_toBottomOf="@id/gotoresign"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

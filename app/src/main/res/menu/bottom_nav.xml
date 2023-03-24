@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/chars"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_group_24"
+        android:title="Персонажи"/>
+    <item
+        android:id="@+id/artef"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_dashboard_24"
+        android:title="Предметы"/>
+    <item
+        android:id="@+id/main"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Главная"/>
+    <item
+        android:id="@+id/map"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_map_24"
+        android:title="Карта"/>
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Профиль"/>
+</menu>

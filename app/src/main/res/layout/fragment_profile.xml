@@ -1,0 +1,88 @@
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="fragments.Profile"
+    android:background="#202924">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20sp"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20sp"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileInfo"
+        android:layout_width="match_parent"
+        android:layout_height="500sp"
+        app:layout_constraintTop_toBottomOf="@id/profileImage"
+        android:layout_margin="20sp"
+        android:background="@drawable/rounded">
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="#D3C7A1"
+            android:textSize="20sp"
+            android:layout_margin="20sp"
+            android:text="LOGIN"/>
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/login"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#D3C7A1"
+            android:layout_margin="20sp"
+            android:textSize="20sp"
+            android:text="EMAIL"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favourite_chars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+          />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/change_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+       app:layout_constraintTop_toBottomOf="@id/profileInfo"
+        android:background="@drawable/rounded"
+        app:backgroundTint="@null"
+        android:textColor="#D3C7A1"
+        android:text="Изменить настройки"
+        android:textSize="15sp"/>
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        app:layout_constraintTop_toBottomOf="@id/change_profile"
+        android:background="@drawable/rounded"
+        app:backgroundTint="@null"
+        android:textColor="#F44336"
+        android:text="Выйти из аккунта"
+        android:textSize="15sp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

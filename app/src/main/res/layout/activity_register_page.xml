@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterPage"
+    android:background="#202924">
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Genshin Helper"
+        android:fontFamily="sans-serif-medium"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/image"
+
+        android:textColor="#D3C7A1"
+        android:textSize="35sp"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        android:src="@drawable/alhaitam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/upload_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+
+        app:layout_constraintTop_toBottomOf="@id/image"
+        android:background="@drawable/rounded"
+        app:backgroundTint="@null"
+        android:textColor="#D3C7A1"
+        android:text="Выбрать фото профиля"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upload_photo"
+
+        android:background="@drawable/input_fields"
+        android:padding="10sp"
+        android:hint="Логин"
+        android:textColorHint="#D3C7A1"
+
+        android:layout_margin="20sp"
+        android:textColor="#D3C7A1"
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login"
+        android:padding="10sp"
+        android:hint="Почта"
+        android:textColorHint="#D3C7A1"
+        android:background="@drawable/input_fields"
+        android:layout_margin="20sp"
+        android:textColor="#D3C7A1"
+        android:textSize="20sp"
+        />
+    <EditText
+        android:id="@+id/passwordTXT"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email"
+        android:padding="10sp"
+        android:hint="Пароль"
+        android:textColorHint="#D3C7A1"
+        android:background="@drawable/input_fields"
+        android:layout_margin="20sp"
+        android:textColor="#D3C7A1"
+        android:textSize="20sp"
+        />
+    <EditText
+        android:id="@+id/confirmPasswordTXT"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordTXT"
+        android:padding="10sp"
+        android:hint="Повторите пароль"
+        android:textColorHint="#D3C7A1"
+        android:background="@drawable/input_fields"
+        android:layout_margin="20sp"
+        android:textColor="#D3C7A1"
+        android:textSize="20sp"
+        />
+
+
+    <Button
+        android:id="@+id/regbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmPasswordTXT"
+        android:background="@drawable/rounded"
+        app:backgroundTint="@null"
+        android:textColor="#D3C7A1"
+        android:text="Зарегестрироваться"
+        android:textSize="20sp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

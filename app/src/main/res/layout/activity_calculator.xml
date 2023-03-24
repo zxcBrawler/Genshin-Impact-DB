@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Calculator"
+    android:background="#202924" >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#202924">
+    <Spinner
+        android:id="@+id/charSpinner"
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded"
+        android:spinnerMode="dialog"
+        android:layout_height="40sp"
+        android:layout_margin="10sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#D3C7A1"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/charImage"
+            android:layout_width="400sp"
+            android:layout_height="400sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/charSpinner" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="1300sp"
+        android:layout_marginTop="-50sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintTop_toBottomOf="@id/charImage">
+            <TextView
+                android:id="@+id/levelLabel"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="30sp"
+                android:text="Уровень 90"
+                android:layout_margin="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:fontWeight="500"
+                android:layout_centerHorizontal="true"
+                android:textColor="#D3C7A1"
+                android:textSize="25sp" />
+<com.google.android.material.slider.Slider
+    android:id="@+id/slider"
+    android:layout_width="match_parent"
+    android:layout_height="100sp"
+    android:valueFrom="10.0"
+
+    android:valueTo="90.0"
+    android:value="20.0"
+    android:stepSize="10.0"
+    app:trackColor="#1B2B27"
+    app:thumbColor="#5E9588"
+    app:trackColorActive="@color/white"
+    app:trackColorInactive="@color/black"
+    app:tickColorInactive="@color/white"
+    app:tickColorActive="@color/white"
+    app:layout_constraintTop_toBottomOf="@id/levelLabel"
+    app:values="@array/initial_slider_values"
+    android:layout_margin="10sp"
+    app:labelStyle="@style/Widget.Material3.Tooltip"
+    app:labelBehavior="gone"/>
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/materialsRecycler"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background = "#202924"
+    app:layout_constraintTop_toBottomOf="@id/slider"/>
+
+            <ImageView
+                android:id="@+id/normalAttackImg"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/materialsRecycler"/>
+
+            <Spinner
+                android:id="@+id/normalAttackSpinner"
+                android:background="@drawable/rounded"
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:spinnerMode="dropdown"
+                android:layout_margin="10sp"
+app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/normalAttackImg"
+                />
+
+            <ImageView
+                android:id="@+id/elementalSkillImg"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+
+                android:layout_margin="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/recyclerNormalAtk"/>
+
+            <Spinner
+                android:id="@+id/elementalSkillSpinner"
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:layout_margin="10sp"
+                android:textColor="#D3C7A1"
+                android:background="@drawable/rounded"
+                app:layout_constraintTop_toBottomOf="@id/elementalSkillImg"
+                />
+            <ImageView
+                android:id="@+id/elementalBurstImg"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerSkillAtk"/>
+            <Spinner
+                android:id="@+id/elementalBurstSpinner"
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:textColor="#D3C7A1"
+                android:spinnerMode="dropdown"
+                android:layout_margin="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:background="@drawable/rounded"
+                app:layout_constraintTop_toBottomOf="@id/elementalBurstImg"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerNormalAtk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background = "#202924"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/normalAttackSpinner"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerSkillAtk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background = "#202924"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/elementalSkillSpinner"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerBurst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background = "#202924"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/elementalBurstImg"
+                app:layout_constraintTop_toBottomOf="@id/elementalBurstSpinner"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
