@@ -45,12 +45,14 @@ class Calculator : AppCompatActivity(),  AdapterView.OnItemSelectedListener {
     private lateinit var normalLevels : Spinner
     private lateinit var skillLevels : Spinner
     private lateinit var burstLevels : Spinner
+    private lateinit var tooltips : Tooltips
 
     private var levels = arrayOf(1,2,3,4,5,6,7,8,9,10,11,12,13)
     private var names : ArrayList<String> = arrayListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
+        tooltips = Tooltips(this)
         label = findViewById(R.id.levelLabel)
         spinner = findViewById(R.id.charSpinner)
         normalLevels = findViewById(R.id.normalAttackSpinner)
@@ -70,6 +72,9 @@ class Calculator : AppCompatActivity(),  AdapterView.OnItemSelectedListener {
         skillRecycler.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
         burstRecycler.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
 
+        label.setOnClickListener {
+            tooltips.levelTooltip.showAlignBottom(slider)
+        }
         val getCharNames : Call<ArrayList<Characters>> = api.getCharacters()
 
         supportActionBar?.hide()

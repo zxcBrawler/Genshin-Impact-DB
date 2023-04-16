@@ -5,12 +5,14 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
+import com.google.android.material.snackbar.Snackbar
 import de.hdodenhof.circleimageview.CircleImageView
 import models.userInfo.User
 import retrofit2.Call
@@ -56,31 +58,60 @@ class ChangeProfileData : AppCompatActivity() {
             }
         })
         upload.setOnClickListener {
-            val intent : Intent = Intent()
+            val intent  = Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
             startActivityForResult(intent,10)
         }
         changeProfile.setOnClickListener {
-            val postData : Call<User> = api.changeProfileInfo(id,
-                User(id,loginChange.text.toString(),path,passwordChange.text.toString(),emailChange.text.toString()))
 
-            postData.enqueue(object : Callback<User>{
-                override fun onResponse(call: Call<User>, response: Response<User>) {
-                    if (response.isSuccessful){
-                        Toast.makeText(this@ChangeProfileData,"Успешное изменение, войдите заново", Toast.LENGTH_LONG).show()
-                        loginPage.clearData()
-                        val intent = Intent(this@ChangeProfileData, LoadingScreen::class.java)
-                        startActivity(intent)
-                        finish()
+            if (loginChange.text.toString() == "" ||
+                passwordChange.text.toString() == "" ||
+                emailChange.text.toString() == ""
+            ) {
+
+                Snackbar.make(
+                    View(this@ChangeProfileData),
+                    "Заполните все поля",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            } else {
+                val postData: Call<User> = api.changeProfileInfo(
+                    id,
+                    User(
+                        id,
+                        loginChange.text.toString(),
+                        path,
+                        passwordChange.text.toString(),
+                        emailChange.text.toString()
+                    )
+                )
+
+                postData.enqueue(object : Callback<User> {
+                    override fun onResponse(call: Call<User>, response: Response<User>) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(
+                                this@ChangeProfileData,
+                                "Успешное изменение, войдите заново",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            loginPage.clearData()
+                            val intent = Intent(this@ChangeProfileData, LoadingScreen::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<User>, t: Throwable) {
-                    Toast.makeText(applicationContext,"Ошибка со стороны клиента", Toast.LENGTH_LONG).show()
-                }
+                    override fun onFailure(call: Call<User>, t: Throwable) {
+                        Toast.makeText(
+                            applicationContext,
+                            "Ошибка со стороны клиента",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
 
-            })
+                })
+            }
         }
 
 
@@ -89,7 +120,7 @@ class ChangeProfileData : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
             val uri: Uri? = data?.data
-            path = RealPathUtil.getRealPath(applicationContext, uri)!!
+            path = RealPathUtil.getRealPathFromURI(applicationContext, uri!!)!!
             imageUser.setImageURI(uri)
         }
     }

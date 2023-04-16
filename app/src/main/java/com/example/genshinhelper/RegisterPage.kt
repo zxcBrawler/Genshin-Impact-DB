@@ -121,10 +121,12 @@ class RegisterPage : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
-            val uri: Uri? = data?.data
-            path = RealPathUtil.getRealPath(applicationContext, uri)!!
-            image.setImageURI(uri)
+        if (resultCode != RESULT_CANCELED) {
+            if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
+                val uri: Uri? = data?.data
+                path = RealPathUtil.getRealPathFromURI(applicationContext, uri!!)!!
+                image.setImageURI(uri)
+            }
         }
     }
 }

@@ -10,11 +10,19 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.lifecycle.LifecycleOwner
+import com.google.android.material.snackbar.Snackbar
+import com.skydoves.balloon.ArrowPositionRules
+import com.skydoves.balloon.Balloon
+import com.skydoves.balloon.BalloonAnimation
+import com.skydoves.balloon.BalloonSizeSpec
 
 import models.userInfo.User
 import retrofit2.Call
@@ -28,9 +36,9 @@ import kotlin.properties.Delegates
 import kotlin.random.Random
 
 
-
+private lateinit var sharedPreferences : SharedPreferences
 class LoginPage : AppCompatActivity() {
-    private lateinit var sharedPreferences : SharedPreferences
+
     private var randomNumber by Delegates.notNull<Int>()
 
     private companion object{
@@ -51,6 +59,7 @@ class LoginPage : AppCompatActivity() {
         loginText  = findViewById(R.id.login)
         passwdText = findViewById(R.id.password)
 
+
        loginButton.setOnClickListener {
                 login()
         }
@@ -59,6 +68,7 @@ class LoginPage : AppCompatActivity() {
             val intent = Intent(this, RegisterPage::class.java)
             startActivity(intent)
         }
+
     }
 private fun login() {
     val randomGenerator = Random(System.currentTimeMillis())
@@ -92,7 +102,13 @@ private fun login() {
                                 startActivity(intent)
                                 finish()
                             }
+                            else {
+                                Toast.makeText(applicationContext,"Неверный код", Toast.LENGTH_LONG).show()
+                            }
                         }
+                    }
+                    else {
+                        Toast.makeText(applicationContext, "Неверный логин или пароль", Toast.LENGTH_LONG).show()
                     }
                 }
             }
@@ -116,6 +132,7 @@ private fun login() {
         notificationBuilder.setSmallIcon(R.drawable.alhaitam)
         notificationBuilder.setContentTitle("Код подтверждения")
         notificationBuilder.setContentText("Ваш код подтверждения - $randomNumber")
+        Log.e("1", randomNumber.toString())
         notificationBuilder.priority = NotificationCompat.PRIORITY_DEFAULT
         val notificationManagerCompat = NotificationManagerCompat.from(this)
         notificationManagerCompat.notify(notificationId, notificationBuilder.build())

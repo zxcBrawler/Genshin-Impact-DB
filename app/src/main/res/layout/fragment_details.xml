@@ -107,15 +107,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/region" />
+
             <TextView
                 android:id="@+id/roleType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5sp"
+                android:layout_marginBottom="10sp"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="#D3C7A1"
                 android:textSize="15sp"
-                android:layout_marginBottom="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/weaponType" />
@@ -150,6 +151,7 @@
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider" />
+
             <TextView
                 android:id="@+id/matTxt"
                 android:layout_width="match_parent"
@@ -200,6 +202,7 @@
                 android:background="#D3C7A1"
                 android:fontFamily="sans-serif-medium"
                 app:layout_constraintTop_toBottomOf="@id/statsTxt" />
+
             <View
                 android:id="@+id/divider2"
                 android:layout_width="match_parent"

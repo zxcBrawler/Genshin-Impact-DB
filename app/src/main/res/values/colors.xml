@@ -6,4 +6,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="tooltips">#2F4D45</color>
+    <color name="textTooltips">#D3C7A1</color>
 </resources>

@@ -24,6 +24,7 @@ class DetailsWeapon : AppCompatActivity() {
         val imageWeapon : ImageView = findViewById(R.id.fullImageWeapon)
         val fullNameWeapon : TextView = findViewById(R.id.full_nameWeapon)
         val typeWeapon : TextView = findViewById(R.id.weaponType)
+        val descChar : TextView = findViewById(R.id.descChar)
         val stars : ImageView = findViewById(R.id.stars)
         getWeaponById.enqueue(object : Callback<Weapons>{
             override fun onResponse(call: Call<Weapons>, response: Response<Weapons>) {
@@ -32,6 +33,7 @@ class DetailsWeapon : AppCompatActivity() {
                     Picasso.get().load(weapon!!.imageWeapon).fit().into(imageWeapon)
                     fullNameWeapon.text = weapon.nameWeapon
                     typeWeapon.text = weapon.typeWeapon.nameTypeWeapon
+                    descChar.text = weapon.descriptionWeapon
                     when (weapon.rarityWeapon) {
                         5 -> {
                             stars.setImageResource(R.drawable.star5)

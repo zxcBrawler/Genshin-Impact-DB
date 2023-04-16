@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.genshinhelper.Details
+import com.example.genshinhelper.DetailsWeapon
 import com.example.genshinhelper.R
 import models.characterInfo.CharWeapons
 import retrofit2.Call
@@ -52,7 +53,7 @@ class CharWeaponsFragment : Fragment() {
                     recycler.adapter = adapter
                     adapter.setOnItemClickListener(object : WeaponCharAdapter.OnItemClickListener {
                         override fun onItemClick(position: Int) {
-                            val intent = Intent(view.context, Details::class.java)
+                            val intent = Intent(view.context, DetailsWeapon::class.java)
                             intent.putExtra("id", chars[position].weaponId)
                             startActivity(intent)
                         }

@@ -22,11 +22,142 @@
 
             android:textColor="#D3C7A1" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sort"
+            android:layout_width="match_parent"
+            android:layout_height="300sp"
+            android:layout_below="@+id/search">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.03"
+                android:text="Элемент"
+                android:textAlignment="center"
+                android:textColor="#D3C7A1"
+                android:textSize="15sp"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/cryo"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:layout_marginLeft="20sp"
+                android:text="Крио"
+                android:checked="true"
+                android:textColor="#D3C7A1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <CheckBox
+                android:id="@+id/electro"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:text="Электро"
+                android:checked="true"
+                android:textColor="#D3C7A1"
+                app:layout_constraintStart_toEndOf="@id/cryo"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <CheckBox
+                android:id="@+id/dendro"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:text="Дендро"
+                android:checked="true"
+                android:textColor="#D3C7A1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/electro"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <CheckBox
+                android:id="@+id/pyro"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:layout_marginLeft="20sp"
+                android:text="Пиро"
+                android:checked="true"
+                android:textColor="#D3C7A1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cryo" />
+
+            <CheckBox
+                android:id="@+id/hydro"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:text="Гидро"
+                android:checked="true"
+                android:textColor="#D3C7A1"
+                app:layout_constraintStart_toEndOf="@id/cryo"
+                app:layout_constraintTop_toBottomOf="@id/cryo" />
+
+            <CheckBox
+                android:id="@+id/geo"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:text="Гео"
+                android:checked="true"
+                android:textColor="#D3C7A1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/hydro"
+                app:layout_constraintTop_toBottomOf="@id/cryo" />
+
+            <CheckBox
+                android:id="@+id/anemo"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:layout_marginLeft="20sp"
+                android:text="Анемо"
+                android:checked="true"
+                android:textColor="#D3C7A1"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/geo" />
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.03"
+                android:text="Редкость"
+                android:textAlignment="center"
+                android:textColor="#D3C7A1"
+                android:textSize="15sp"
+
+                app:layout_constraintTop_toBottomOf="@id/anemo" />
+
+            <CheckBox
+                android:id="@+id/star5"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:layout_marginLeft="20sp"
+                android:checked="true"
+                android:text="5"
+                android:textColor="#D3C7A1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title2" />
+
+            <CheckBox
+                android:id="@+id/star4"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:text="4"
+                android:checked="true"
+                android:textColor="#D3C7A1"
+                app:layout_constraintStart_toEndOf="@id/star5"
+                app:layout_constraintTop_toBottomOf="@id/title2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
             android:id="@+id/logo"
-            android:layout_width="match_parent"
+            android:layout_width="240sp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/search"
+            android:layout_below="@+id/sort"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -36,6 +167,9 @@
             android:text="Персонажи"
             android:textColor="#D3C7A1"
             android:textSize="25sp" />
+
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

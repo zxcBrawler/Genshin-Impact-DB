@@ -11,7 +11,7 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
 object RequestBuilder {
-    private val URL : String = "https://192.168.132.219:7012/api/"
+    private val URL : String = "https://192.168.50.208:7012/api/"
     private lateinit var retrofit : Retrofit
 
     private fun getUnsafeOkHttpClient(): OkHttpClient.Builder {

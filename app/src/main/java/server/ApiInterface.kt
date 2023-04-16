@@ -4,6 +4,7 @@ import models.Artefacts
 import models.Characters
 import models.Materials
 import models.Weapons
+import models.characterInfo.CharArtefacts
 import models.characterInfo.CharMaterials
 import models.characterInfo.CharSkills
 import models.characterInfo.CharWeapons
@@ -49,6 +50,8 @@ interface ApiInterface {
 
     @GET("ArtefactSets/")
     fun getArtefactSets() : Call<ArrayList<ArtefactSets>>
+    @GET("ArtefactSets/{id}")
+    fun getArtefactSetsId(@Path("id") id : Int) : Call<ArtefactSets>
 
     @GET("DaysMaterials/")
     fun getMaterialsByDay() : Call<ArrayList<DaysMaterials>>
@@ -58,6 +61,9 @@ interface ApiInterface {
 
     @GET("Artefacts/")
     fun getArtefact() : Call<ArrayList<Artefacts>>
+
+    @GET("CharArtefacts/")
+    fun getCharArtefacts() : Call<ArrayList<CharArtefacts>>
 
     @GET("Weapons/")
     fun getWeapons() : Call<ArrayList<Weapons>>

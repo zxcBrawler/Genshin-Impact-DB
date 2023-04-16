@@ -4,7 +4,6 @@ import adapters.MyViewPagerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
-import com.example.genshinhelper.R
 import com.google.android.material.tabs.TabLayout
 
 class Details : AppCompatActivity() {
@@ -18,7 +17,7 @@ lateinit var bundle: Bundle
 
         val tabLayout : TabLayout = findViewById(R.id.tab_layout)
         val viewPager2 : ViewPager2 = findViewById(R.id.view_pager2)
-        val myViewPagerAdapter : MyViewPagerAdapter = MyViewPagerAdapter(supportFragmentManager, lifecycle)
+        val myViewPagerAdapter = MyViewPagerAdapter(supportFragmentManager, lifecycle)
         viewPager2.adapter = myViewPagerAdapter
         supportActionBar!!.hide()
         tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
